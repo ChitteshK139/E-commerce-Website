@@ -123,13 +123,13 @@ const cartReducer = (state, action) => {
     let updatedItemval=state.cart.reduce((initialVal,curElem)=>{
       let {amount}=curElem;
   
-      initialVal=initialVal+amount;
+      initialVal= initialVal+ amount;
       return initialVal;
     },0);
   
     return{
       ...state,
-      total_item:updatedItemval,
+      total_item: updatedItemval,
     }
   }
 
