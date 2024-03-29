@@ -34,6 +34,14 @@ const cartReducer = (state, action) => {
     };
   }
 
+  // To empty / clear the cart
+  if (action.type === "CLEAR_CART"){
+    return {
+      ...state,
+      cart:[],
+    }
+  }
+
   return state;
 };
 
