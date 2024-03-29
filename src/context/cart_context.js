@@ -29,6 +29,16 @@ const CartProvider = ({ children }) => {
     dispatch({ type: "ADD_TO_CART", payload: { id, color, amount, product } });
   };
 
+  // Increment and decrement
+
+  const setDecrease=(id)=>{
+    dispatch({type:"SET_DECREMENT",payload:id});
+  }
+
+  const setIncrease=(id)=>{
+    dispatch({type:"SET_INCREMENT",payload:id});  
+  }
+
   const removeItem = (id) => {
     dispatch({ type: "REMOVE_ITEM", payload: id });
   };
@@ -43,11 +53,12 @@ const CartProvider = ({ children }) => {
   //get vs set
 
   useEffect(()=>{
+    dispatch({type:"CART_TOTAL_ITEM"});
     localStorage.setItem("Ecommerce Cart", JSON.stringify(state.cart))
   },[state.cart])
 
   return (
-    <CartContext.Provider value={{ ...state, addToCart, removeItem, clearCart }}>
+    <CartContext.Provider value={{ ...state, addToCart, removeItem, clearCart, setDecrease, setIncrease }}>
       {children}
     </CartContext.Provider>
   );
