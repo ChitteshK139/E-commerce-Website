@@ -85,7 +85,7 @@ const cartReducer = (state, action) => {
       if (curElem.id==action.payload){
         let incAmt=curElem.amount+1;
 
-        if (decAmt>=curElem.max){
+        if (incAmt>=curElem.max){
           incAmt=curElem.max;
         }
         return {
